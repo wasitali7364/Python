@@ -70,3 +70,23 @@ files = [item for item in cwd.rglob("*") if item.is_file()]
 print(f'{files = }')
 for file in files:
     print(file)
+
+# Get File Path
+from pathlib import Path
+
+script_path = Path( __file__ ).absolute()
+
+print( script_path )
+
+# Get File Directory
+from pathlib import Path
+
+script_dir = Path( __file__ ).parent.absolute()
+
+print( script_dir )
+
+
+# Delete all files in a folder
+path = Path(__file__).parent.absolute().joinpath('data','63')
+for file in path.iterdir():
+    Path(file).unlink()
