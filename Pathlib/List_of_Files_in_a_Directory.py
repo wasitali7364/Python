@@ -87,6 +87,16 @@ print( script_dir )
 
 
 # Delete all files in a folder
-path = Path(__file__).parent.absolute().joinpath('data','63')
+from pathlib import Path
+
+# Create a Path
+path = Path(__file__).parent.absolute() / 'Data'
+
+# iterate through all files and folders in the given path
 for file in path.iterdir():
-    Path(file).unlink()
+    # check if path is file and not directory
+    if file.is_file():
+        # check if file is csv file
+        if file.suffix == '.csv':
+            # delete the file
+            file.unlink()
