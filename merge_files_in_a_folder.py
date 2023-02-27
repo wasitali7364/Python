@@ -11,6 +11,6 @@ file_list = list(data_directory.iterdir())
 df = pd.concat([pd.read_csv(data_directory.joinpath(f)) for f in file_list if f.stat().st_size > 5])
 
 # Write the concatenated DataFrame to a new file
-df.to_csv('merged_bank_file_2021_2022.csv', index=False)
+df.to_csv('merged_file.csv', index=False)
 
 print("Successfully Merged All The File into One File.")
